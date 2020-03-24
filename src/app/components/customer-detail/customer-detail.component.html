@@ -1,0 +1,38 @@
+<div class="container">
+
+    <h2>
+        {{ "Vilken mat och godis ska till stol: " + customers[seat].seat }}
+    </h2>
+    <div class="foodlists">
+        <div class="menu">
+            <h3> Godis </h3>
+            <ul>
+
+                <li *ngFor="let candy of candyList">
+                    <span>{{ candy[0] +" " }}</span><span>{{ candy[1]+" kr"  }}</span><span><div (click)="buyCandy(candy)" class="plus">+</div></span><span><div (click) ="removeCandy(candy)" class="minus">-</div></span>
+                </li>
+
+            </ul>
+        </div>
+        <div class="menu">
+            <h3>Dryker </h3>
+            <ul>
+
+                <li *ngFor="let drink of drinkList">
+                    <span>{{ drink[0] +" "}}</span><span>{{ drink[1]+" kr"  }}</span><span><div (click)="buyDrinks(drink)" class="plus">+</div></span><span><div (click)="removeDrinks(drink)"  class="minus">-</div></span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu">
+            <h3>Mat </h3>
+            <ul>
+
+                <li *ngFor="let food of foodList">
+                    <span>{{ food[0] +" "}}</span><span> {{ food[1]+" kr" }} </span><span (click)="buyFood(food)" ><div  class="plus">+</div></span><span ><div (click)="removeFood(food)" class="minus">-</div></span>
+                </li>
+            </ul>
+        </div>
+        <h3>Ssumman: {{ this.customers[this.seat].sum + " kr" }}</h3>
+    </div>
+
+</div>

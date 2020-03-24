@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MovieComponent } from './components/movie/movie.component';
+import { ConfirmedComponent } from './components/confirmed/confirmed.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', component: MovieComponent},
+  {path:'confirmed', component: ConfirmedComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

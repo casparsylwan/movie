@@ -1,0 +1,70 @@
+.container{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 3rem;
+    width: 40vw;
+    background-color: #ffaa44;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+h3{
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem;
+
+}
+
+ul{
+    
+    width:100%;
+    border: solid 4px #ffffff;
+    background-color: rgba(255, 255, 255, 0.19);
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+li{
+    padding-top: 1rem;
+}
+
+.foodlists{
+
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+li>span:nth-child(2){
+    
+    float: right;
+}
+
+span{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.plus, .minus{
+    border-radius: 100%;
+    background-color: #f00;
+    height: 30px;
+    width: 30px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.minus{
+    background-color: #00f;
+}
+
+

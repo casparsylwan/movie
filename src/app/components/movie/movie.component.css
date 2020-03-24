@@ -1,0 +1,307 @@
+/*------------PEGA MOVIE----------------*/
+
+
+.wrapper{
+    margin: 0 auto;
+    width: 85vw;
+}
+
+.topframe{
+    
+    height: 25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas: 
+    
+    " main top"
+    " main bottom";
+}
+
+.main, .sidetop, .sidebottom{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+
+    grid-area: main;
+    background-color: #add8ff;
+
+}
+
+.sidetop{
+    grid-area: top;
+    background-color: #ff8f5d;
+}
+
+.sidebottom{
+    grid-area: bottom;
+    background-color: #ffbb55;
+}
+
+.sidetop, .sidebottom h2{
+
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 3rem;
+    text-align: center;
+}
+
+.main h1{
+
+    color:#fff;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+
+    padding: 5rem;
+}
+
+.menu{
+    background-color: #fff;
+    width: 100%;
+    height: 5rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.start, .howmany{
+    margin: 2rem;
+    font-size: 1.5rem;
+    font-weight: 1.5rem;
+
+}
+
+input{
+    border-radius: 5px;
+}
+
+.tickets, .numberOfTickets{
+    font-size: 1.2rem;
+    font-weight: 1.2rem;
+}
+
+.tickets{
+    border-radius: 20px;
+}
+
+
+/*----------dropdown------------*/
+
+#moviemenu{
+    width: 100%;
+    height: 0rem;
+    color: fb5;
+    
+    display: flex;
+    justify-content: space-evenly;
+    transition: height ease-in 500ms;
+}
+
+/*
+#movie:hover{
+    background-color: #777;
+}
+*/
+
+
+ .movies{
+    /*display: none; /*.visibility = "visible"*/
+    opacity: 0.0s;
+    padding-top: 2.5rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 1.5rem;
+    transition: all ease-in 1000ms;
+}
+
+.film p{
+    font-size: 1.5rem; 
+    border: black solid 1px;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+
+.film p:hover{
+    background-color: #a1a1a1;
+    transition: background-color ease-in 1000ms;
+}
+
+.movies:hover{
+
+    color:#833;
+}
+
+
+.order{
+
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+    /*
+    transition: background-color ease-in 500ms;
+    transition: all ease-in 11500ms;
+    
+}
+
+.order:hover{
+    background-color: #a1a1a1;
+
+}
+*/
+
+/*-----date------*/
+
+input{
+    border: #000 solid 2px;
+}
+
+.moviebox{
+
+    
+    background-color: #111;
+    padding-left: 30%;
+    padding-right: 10%;
+    padding-bottom: 10rem;
+    padding-top: 10rem;
+
+
+    display: grid;
+    grid-row-gap: 3rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    align-items: center;
+    
+
+}
+
+
+
+.seatsheading{
+
+    width: 100%;
+    background-color: #111;
+    padding-bottom:  2rem;
+    
+}
+
+.seatsheading h2{
+
+    color: #fff;
+    padding-top: 2rem;
+    font-size: xx-large;
+    text-align: center;
+
+}
+
+.cinema{
+
+    border: solid #fff 3px;
+    border-top: 6px #ff3333 solid;
+    border-radius: 10px;
+    height: 10rem;
+    width: 10rem;
+    
+
+    align-self: center;
+    justify-self: center;
+
+}
+
+.cinema p{
+
+    color: #fff;
+    padding-top: 2rem;
+    font-size: xx-large;
+    text-align: center;
+
+}
+
+.seat{
+
+    border: wheat 2px solid;
+    border-radius: 0 0 100% 100%;
+    margin-top: 10%;
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+
+
+.cinema:active{
+    background-color: #ff6666;
+}
+
+
+/*------------Mat beställning börjar här------------*/
+
+
+
+
+.foodbox{
+     display: flex;
+     flex-direction: row;
+     
+}
+
+.foodcontainers{
+
+        display: flex;
+        flex-direction: row;
+             
+}
+
+.foodcontainers ul{
+    margin-left: 20rem;
+}
+
+.foodcontainers:nth-child(2){
+    border: solid black 0px;
+    margin: 0 auto;
+}
+
+.foodcontainers ul>li{
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: #777;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.foodcontainers ul>li span{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.godis{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+/*---------------Order box in corner ---------------*/
+
+.theOrder{
+    position: fixed;
+    background-color: rgba(77, 77, 77, 0.7);
+    border-radius: 5%;
+    padding: 3rem;
+    top:1rem;
+    left: 2rem;
+}
+
+.theOrder p{
+    color: #fff;
+    padding: 0.2rem;
+}

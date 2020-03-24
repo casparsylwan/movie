@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <div class="heading">
+        <h2>Kontrollera din beställning:</h2>
+        <p>Ni är {{ customers.length }} och ska se {{ movieName }} den {{ movieDate }}.</p>
+    </div>
+    <div class="order">
+        <div class="customer" *ngFor="let customer of customers">
+            <h3>Till stol {{ customer.seat }}</h3>
+            <p>Finns beställningen:</p>
+            <p *ngFor = "let food of customer.food ">  {{ food }}</p>
+            <p *ngFor = "let drink of customer.drinks ">  {{ drink }}</p>
+            <p *ngFor = "let candy of customer.candy ">  {{ candy }}</p>
+            <p>Den totala suman för stolen är {{ customer.sum }}</p>
+        </div>
+        <h3>Den totala summan är {{ totalSum }}</h3>
+    </div>
+    <button (click)="send()">Bekräfta och skicka</button>
+</div>
+
+
+

@@ -1,0 +1,136 @@
+<body>
+    <div class="wrapper animated fadeIn">
+        <div *ngIf="!(confirm)" class="topframe">
+            <div class="main">
+                <h1>Välkommen till PEGA Cinema</h1>
+
+            </div>
+            <div class="sidetop">
+
+                <h2>Beställ den bästa maten till filmen!</h2>
+
+
+
+            </div>
+            <div class="sidebottom">
+
+                <h2> Vi har även det bästa godist</h2>
+
+            </div>
+
+        </div>
+        <div *ngIf="!(begin)" class="menu"  ><!---->
+            <div class="start">
+                Skriv in hur många biljeter ni vill ha!
+
+            </div>
+            <div class="howmany">
+                <input type="number" class="numberOfTickets" min="1" max="20" value="1" [(ngModel)]="tickets" />
+                <button (click)="getNumberOfTickets()" class="tickets">
+                    skicka
+                </button>
+
+            </div>
+
+        </div>
+        <div *ngIf="(begin)" class="mainorder"><!---->
+            <div *ngIf="!(timeSet)" class="menu"><!---->
+                <div
+                 *ngIf="!(moviePicked)"
+                class="order film animated fadeIn" (click)="movieChoice()">
+                    <p>
+                    Välj film
+                    </p>
+                </div>
+                <div 
+                *ngIf="(moviePicked)"
+                class="order animated fadeIn" [style.opacity]="(moviePicked) ? '0.9' : '0'">
+                    Filmen går klockan: 19:00 alla dagar!
+
+                </div>
+
+                <div 
+                *ngIf="(moviePicked)"
+                [style.opacity]="(moviePicked) ? '0.9' : '0'" class="order animated fadeIn"> Välj Datum </div>
+
+                <div 
+                *ngIf="(moviePicked)"
+                [style.opacity]="(moviePicked) ? '0.9' : '0'"
+                class="order animated fadeIn" id=date> 
+                    <input class="numberOfTickets" type="date" [(ngModel)]="movieDate">
+                    <button class="tickets" (click)="setDateAndTime()" [disabled]="!(moviePicked)"> 
+                        Skicka 
+                    </button> 
+                </div>
+
+            </div>
+            <div id="moviemenu" [style.height]=" (movieBol) ? '0rem' : '6rem'"
+                                [style.backgroundColor]="'#777'" ><!--*ngIf="!(setSeats)"-->
+                <div class="movies" [style.opacity]="(opacity) ? '0.9' : '0'" *ngFor="let movie of movieList"
+                    (click)="getMovie(movie)">
+                    {{ movie }} </div>
+
+            </div>
+            <div *ngIf="!(setSeats) && (timeSet)" class="seatsheading animated fadeIn"> <!--*ngIf="setSeats ] && [begin]"-->
+                <h2 *ngIf = "(timeSet)">Var god och välj sittplatser!</h2>
+            </div>
+            <div *ngIf="!(setSeats) && (timeSet)" class="moviebox animated fadeIn" ><!--*ngIf="!setSeats"-->
+                <div class="cinema" *ngFor="let seat of ' '.repeat(20).split(''); index as i" (click)="getSeats( i+1)"
+                clickColor [color] = "'red'">
+                    <div class="seat">
+
+                        <p> {{ i+1 }}</p>
+
+                    </div>
+                </div>
+            </div> 
+            <!--*ngIf="!(confirm)"-->
+            <div *ngIf="(customers.length>0 && (setSeats))" class="foodbox">
+                <div *ngIf="!(confirm)" class="foodcontainers">
+                    <ul>
+                        <li  *ngFor="let customer of customers; index as i" (click)="buyFood( i )" >
+                            <span>Mat till stol: </span><span> {{  customer.seat }} <br> summa: {{ customer.sum }} </span>
+                        </li>
+                        <li (click)="confirmOrder()"> 
+                            <span>Bekräfta</span><span>Beställningen</span><span>*</span>                            
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="!(confirm)" class="foodcontainers">
+                    <app-customer-detail *ngIf="customers.length>0 && (setSeats)"
+                        (click)="calculateTotalSum()"
+                        [seat]="customerSeat"
+                        [customers]= "customers" 
+                        (customersEvent)="customers=$event">
+                    </app-customer-detail>
+                </div>
+            </div>
+            
+            
+        <div *ngIf="!(confirm)" class="theOrder animated fadeIn">
+            <p>Antal biljeter: {{ tickets }}</p>
+            <p>Vilken film: {{ movieName }}</p>
+            <p *ngIf="(timeSet)" >Datum och tid: {{ movieDate }} </p>
+            <p>Total:</p>
+            <p>{{ totalSum }}</p>
+            <div class="clientInfo" *ngFor="let customer of customers">
+                <p class="customerOrder">Din plats är: {{ customer.seat }}</p>
+                <p>Mat</p>
+                <p *ngFor="let food of customer.food"> {{ food + " " }}</p>
+                <p>Godis</p>
+                <span class="godis" *ngFor="let candy of customer.candy">{{ candy + " " }}</span>
+                <p>Drycker</p>
+                <p *ngFor="let drinks of customer.drinks"> {{ drinks + " " }}</p>               
+            </div>
+        </div>
+        
+        
+
+    </div>
+    <app-confirm-order
+    *ngIf="(confirm)"
+    [totalSum]  = "totalSum"
+    [movieDate] = "movieDate"
+    [movieName] = "movieName"
+    [customers] = "customers">
+    </app-confirm-order>
