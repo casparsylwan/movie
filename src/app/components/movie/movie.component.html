@@ -79,7 +79,7 @@
                 clickColor [color] = "'red'">
                     <div class="seat">
 
-                        <p> {{ i+1 }}</p>
+                        <p> {{ i+1 }} </p><p *ngIf="!!(i%4==0)" >{{ "&#9855;" }}</p>
 
                     </div>
                 </div>
